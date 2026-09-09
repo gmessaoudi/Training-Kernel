@@ -29,7 +29,7 @@ sudo apt-get install qemu-system
 
 1. **Compiler le noyau :**
 ```bash
-cargo build --target riscv64gc-unknown-none-elf --release
+cargo build --release
 ```
 
 2. **Lancer avec QEMU (Machine Virt) :**
@@ -38,7 +38,12 @@ qemu-system-riscv64 \
     -machine virt \
     -nographic \
     -bios none \
-    -kernel target/riscv64gc-unknown-none-elf/release/kernel
+    -kernel target/riscv32imac-unknown-none-elf/release/kernel
+```
+
+3. **Compiler et lancer :**
+```bash
+cargo run --release
 ```
 
 *Note : Pour quitter l'émulateur QEMU, appuyez sur `Ctrl+A` puis sur `X`.*
